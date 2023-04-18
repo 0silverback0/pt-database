@@ -64,21 +64,18 @@ To start writing SQL queries against the database login by typing `psql <databas
 ## Sample Queries
 
 ### Insert Data
-INSERT INTO trainer (id, name, email)
-VALUES ('123', 'John Doe', 'john@example.com');
+`INSERT INTO trainer (id, name, email) VALUES ('123', 'John Doe', 'john@example.com');`
 
-INSERT INTO client (id, trainer_id, name, email)
-VALUES ('456', '123', 'Jane Doe', 'jane@example.com');
+`INSERT INTO client (id, trainer_id, name, email) VALUES ('456', '123', 'Jane Doe', 'jane@example.com');`
 
-INSERT INTO workout (id, client_id, name, description)
-VALUES ('789', '456', 'Workout 1', 'This is a sample workout');
+`INSERT INTO workout (id, client_id, name, description) VALUES ('789', '456', 'Workout 1', 'This is a sample workout');`
 
 ### Select Data
-SELECT * FROM trainer;
+`SELECT * FROM trainer;`
 
-SELECT * FROM client;
+`SELECT * FROM client;`
 
-SELECT * FROM workout;
+`SELECT * FROM workout;`
 
 ## Troubleshooting Steps
 
