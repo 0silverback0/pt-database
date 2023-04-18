@@ -13,15 +13,17 @@ The Workout model stores information about each workout, including its name and 
 This app is built using Flask, SQLAlchemy, and Python.
 
 ## How to Install
-- be sure to have postgres installed on your machine
-- fork this repo 
-- then create a clone of the forked repo on your machine
-- in the terminal cd to the new directory pt-database `cd pt-database`
-- create a new virtual environment `python3 -m venv venv`
-- next install the dependencies `pip install -r requirements.txt`
-
-### Create Database
-- in the terminal run `createdb <database name>`
+- Be sure to have postgres installed on your machine
+- Fork this repo 
+- Then create a clone of the forked repo on your machine
+- In the terminal cd to the new directory pt-database `cd pt-database`
+- Create a new virtual environment `python3 -m venv venv`
+- Next install the dependencies `pip install -r requirements.txt`
+- In the terminal run `createdb <database name>` replace database name with the name you want
+- In the root directory create a .env file and add your database URI `postgresql://<username>:<password>@localhost/<database name>`
+- Run the seed.py file, type `python3 seed.py` in the terminal and press enter
+- Login to the database type `psql <database name>` in the terminal
+- Finall type `\dt` and you should see the schema
 
 ## Database Models
 ### This section contains the database models used in this application.
