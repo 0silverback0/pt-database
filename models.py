@@ -29,3 +29,26 @@ class Workout(db.Model):
     client_id = db.Column(db.String, db.ForeignKey('client.id'))
     name = db.Column(db.String(64))
     description = db.Column(db.String(128))
+
+class MealPlan(db.Model):
+    __tablename__ = 'meal_plan'
+
+    id = db.Column(db.Integer, primary_key=True)
+    day = db.Column(db.String)
+    meal_type = db.Column(db.String)
+    meal = db.Column(db.String)
+    calories = db.Column(db.Float)
+    protein = db.Column(db.Float)
+    carbs = db.Column(db.Float)
+    fat = db.Column(db.Float)
+    meal_plan_id = db.Column(db.Integer, db.ForeignKey('meal_plan_summary.id'))
+    meal_plan = db.relationship("MealPlanSummary", back_populates="meal_plan")
+
+# Define the meal plan summary table
+class MealPlanSummary(db.Model):
+    __tablename__ = 'meal_plan_summary'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    meal_plan = db.relationship("MealPlan", back_populates="meal_plan")
+
