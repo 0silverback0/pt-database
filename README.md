@@ -57,6 +57,41 @@ The Workout model is used to store information about workouts.
 | name | String | Name of the workout |
 | description| String | Description of the workout |
 
+# MealPlan
+
+This is a class that represents a meal plan in a database. It is a subclass of `db.Model`, which suggests that it is designed to work with a SQLAlchemy database.
+
+| Attribute | Type | Description |
+| ---------- | ------ | ------------------------------------ |
+| id | Integer | Unique identifier for the meal plan |
+| day | String | Day of the week for a particular meal |
+| meal_type | String | Type of meal (e.g. breakfast, lunch, dinner) |
+| meal | String | Name of the meal |
+| calories | Float | Number of calories in the meal |
+| protein | Float | Amount of protein in the meal |
+| carbs | Float | Amount of carbohydrates in the meal |
+| fat | Float | Amount of fat in the meal |
+| meal_plan_id | Integer | Foreign key to the id column of the meal_plan_summary table |
+
+## Relationships
+
+* `meal_plan`: A relationship to the `MealPlanSummary` class via the `meal_plan` attribute. This relationship is defined in the `MealPlan` class.
+
+
+# MealPlanSummary
+
+This is a class that represents a meal plan summary in a database. It is a subclass of `db.Model`, which suggests that it is designed to work with a SQLAlchemy database.
+
+| Attribute | Type | Description |
+| ---------- | ------ | ------------------------------------ |
+| id | Integer | Unique identifier for the meal plan summary |
+| name | String | Name of the meal plan |
+
+## Relationships
+
+* `meal_plan`: A relationship to the `MealPlan` class via the `meal_plan` attribute. This relationship is defined in the `MealPlanSummary` class.
+
+
 ## Usage
 To start writing SQL queries against the database login by typing `psql <database name>` in the terminal. From there you can view the tables by typing
 `\dt` there you will be able to see the tables in the database. You can then begin typing queries.
