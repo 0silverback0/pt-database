@@ -57,6 +57,8 @@ The Workout model is used to store information about workouts.
 | name | String | Name of the workout |
 | description| String | Description of the workout |
 
+
+
 ## Usage
 To start writing SQL queries against the database login by typing `psql <database name>` in the terminal. From there you can view the tables by typing
 `\dt` there you will be able to see the tables in the database. You can then begin typing queries.

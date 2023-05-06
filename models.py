@@ -44,7 +44,6 @@ class MealPlan(db.Model):
     meal_plan_id = db.Column(db.Integer, db.ForeignKey('meal_plan_summary.id'))
     meal_plan = db.relationship("MealPlanSummary", back_populates="meal_plan")
 
-# Define the meal plan summary table
 class MealPlanSummary(db.Model):
     __tablename__ = 'meal_plan_summary'
 
