@@ -1,88 +1,216 @@
 from app import app
-from models import db, Trainer, Client, Workout, MealPlan, MealPlanSummary
-
-with app.app_context():
-    db.drop_all()
-    db.create_all()
+from models import db, Trainer, Client, Workout, MealPlan
 
 # Create trainers
 trainer1 = Trainer(id='1', name='John', email='john@example.com')
 trainer2 = Trainer(id='2', name='Jane', email='jane@example.com')
 
-#Create clients
-client_1 = Client(
-    id='1', 
-    trainer_id='1', 
-    name='John Doe',
-    email='john.doe@example.com'
+# create a meal plan
+
+meal_plan1 = MealPlan(
+    name='Weekly meal plan',
+    monday_breakfast='Scrambled eggs',
+    monday_breakfast_calories=300,
+    monday_breakfast_protein=20,
+    monday_breakfast_carbs=10,
+    monday_breakfast_fat=15,
+    monday_snack1='Greek yogurt',
+    monday_snack1_calories=100,
+    monday_snack1_protein=15,
+    monday_snack1_carbs=10,
+    monday_snack1_fat=0,
+    monday_lunch='Grilled chicken salad',
+    monday_lunch_calories=400,
+    monday_lunch_protein=30,
+    monday_lunch_carbs=20,
+    monday_lunch_fat=10,
+    monday_snack2='Apple slices with peanut butter',
+    monday_snack2_calories=150,
+    monday_snack2_protein=5,
+    monday_snack2_carbs=20,
+    monday_snack2_fat=8,
+    monday_dinner='Salmon with roasted vegetables',
+    monday_dinner_calories=450,
+    monday_dinner_protein=35,
+    monday_dinner_carbs=20,
+    monday_dinner_fat=15,
+    tuesday_breakfast='Oatmeal with blueberries',
+    tuesday_breakfast_calories=250,
+    tuesday_breakfast_protein=10,
+    tuesday_breakfast_carbs=30,
+    tuesday_breakfast_fat=5,
+    tuesday_snack1='Banana',
+    tuesday_snack1_calories=80,
+    tuesday_snack1_protein=1,
+    tuesday_snack1_carbs=20,
+    tuesday_snack1_fat=0,
+    tuesday_lunch='Grilled chicken sandwich',
+    tuesday_lunch_calories=450,
+    tuesday_lunch_protein=25,
+    tuesday_lunch_carbs=30,
+    tuesday_lunch_fat=20,
+    tuesday_snack2='Celery sticks with hummus',
+    tuesday_snack2_calories=100,
+    tuesday_snack2_protein=3,
+    tuesday_snack2_carbs=10,
+    tuesday_snack2_fat=8,
+    tuesday_dinner='Beef stir fry',
+    tuesday_dinner_calories=500,
+    tuesday_dinner_protein=40,
+    tuesday_dinner_carbs=30,
+    tuesday_dinner_fat=20,
+    wednesday_breakfast='Yogurt parfait',
+    wednesday_breakfast_calories=300,
+    wednesday_breakfast_protein=15,
+    wednesday_breakfast_carbs=25,
+    wednesday_breakfast_fat=10,
+    wednesday_snack1='Mixed nuts',
+    wednesday_snack1_calories=200,
+    wednesday_snack1_protein=5,
+    wednesday_snack1_carbs=10,
+    wednesday_snack1_fat=18,
+    wednesday_lunch='Tuna salad sandwich',
+    wednesday_lunch_calories=400,
+    wednesday_lunch_protein=20,
+    wednesday_lunch_carbs=30,
+    wednesday_lunch_fat=15,
+    wednesday_snack2='Orange slices',
+    wednesday_snack2_calories=50,
+    wednesday_snack2_protein=1,
+    wednesday_snack2_carbs=10,
+    wednesday_snack2_fat=0,
+    wednesday_dinner='Grilled Chicken',
+    wednesday_dinner_calories=500,
+    wednesday_dinner_protein=40,
+    wednesday_dinner_carbs=30,
+    wednesday_dinner_fat=20,
+    thursday_breakfast='Yogurt parfait',
+    thursday_breakfast_calories=300,
+    thursday_breakfast_protein=15,
+    thursday_breakfast_carbs=25,
+    thursday_breakfast_fat=10,
+    thursday_snack1='Mixed nuts',
+    thursday_snack1_calories=200,
+    thursday_snack1_protein=5,
+    thursday_snack1_carbs=10,
+    thursday_snack1_fat=18,
+    thursday_lunch='Tuna salad sandwich',
+    thursday_lunch_calories=400,
+    thursday_lunch_protein=20,
+    thursday_lunch_carbs=30,
+    thursday_lunch_fat=15,
+    thursday_snack2='Orange slices',
+    thursday_snack2_calories=50,
+    thursday_snack2_protein=1,
+    thursday_snack2_carbs=10,
+    thursday_snack2_fat=0,
+    thursday_dinner='Grilled Chicken',
+    thursday_dinner_calories=500,
+    thursday_dinner_protein=40,
+    thursday_dinner_carbs=30,
+    thursday_dinner_fat=20,
+    friday_breakfast='Yogurt parfait',
+    friday_breakfast_calories=300,
+    friday_breakfast_protein=15,
+    friday_breakfast_carbs=25,
+    friday_breakfast_fat=10,
+    friday_snack1='Mixed nuts',
+    friday_snack1_calories=200,
+    friday_snack1_protein=5,
+    friday_snack1_carbs=10,
+    friday_snack1_fat=18,
+    friday_lunch='Tuna salad sandwich',
+    friday_lunch_calories=400,
+    friday_lunch_protein=20,
+    friday_lunch_carbs=30,
+    friday_lunch_fat=15,
+    friday_snack2='Orange slices',
+    friday_snack2_calories=50,
+    friday_snack2_protein=1,
+    friday_snack2_carbs=10,
+    friday_snack2_fat=0,
+    friday_dinner='Grilled Chicken',
+    friday_dinner_calories=500,
+    friday_dinner_protein=40,
+    friday_dinner_carbs=30,
+    friday_dinner_fat=20,
+    saturday_breakfast='Yogurt parfait',
+    saturday_breakfast_calories=300,
+    saturday_breakfast_protein=15,
+    saturday_breakfast_carbs=25,
+    saturday_breakfast_fat=10,
+    saturday_snack1='Mixed nuts',
+    saturday_snack1_calories=200,
+    saturday_snack1_protein=5,
+    saturday_snack1_carbs=10,
+    saturday_snack1_fat=18,
+    saturday_lunch='Tuna salad sandwich',
+    saturday_lunch_calories=400,
+    saturday_lunch_protein=20,
+    saturday_lunch_carbs=30,
+    saturday_lunch_fat=15,
+    saturday_snack2='Orange slices',
+    saturday_snack2_calories=50,
+    saturday_snack2_protein=1,
+    saturday_snack2_carbs=10,
+    saturday_snack2_fat=0,
+    saturday_dinner='Grilled Chicken',
+    saturday_dinner_calories=500,
+    saturday_dinner_protein=40,
+    saturday_dinner_carbs=30,
+    saturday_dinner_fat=20,
+    sunday_breakfast='Yogurt parfait',
+    sunday_breakfast_calories=300,
+    sunday_breakfast_protein=15,
+    sunday_breakfast_carbs=25,
+    sunday_breakfast_fat=10,
+    sunday_snack1='Mixed nuts',
+    sunday_snack1_calories=200,
+    sunday_snack1_protein=5,
+    sunday_snack1_carbs=10,
+    sunday_snack1_fat=18,
+    sunday_lunch='Tuna salad sandwich',
+    sunday_lunch_calories=400,
+    sunday_lunch_protein=20,
+    sunday_lunch_carbs=30,
+    sunday_lunch_fat=15,
+    sunday_snack2='Orange slices',
+    sunday_snack2_calories=50,
+    sunday_snack2_protein=1,
+    sunday_snack2_carbs=10,
+    sunday_snack2_fat=0,
+    sunday_dinner='Grilled Chicken',
+    sunday_dinner_calories=500,
+    sunday_dinner_protein=40,
+    sunday_dinner_carbs=30,
+    sunday_dinner_fat=20,
 )
 
-client_2 = Client(
-    id='2', 
-    trainer_id='1', 
-    name='Jane Doe',
-    email='jane.doe@example.com'
-)
+# Create clients and workouts
+clients = [
+    Client(id='1', trainer_id='1', name='John Doe', email='johndoe@example.com', meal_plan_id=1),
+    Client(id='2', trainer_id='1', name='Jane Smith', email='janesmith@example.com', meal_plan_id=1),
+    Client(id='3', trainer_id='2', name='Bob Johnson', email='bobjohnson@example.com', meal_plan_id=1)
+]
 
-client_3 = Client(
-    id='3', 
-    trainer_id='2', 
-    name='Jack Johnson',
-    email='jack.johnson@example.com'
-)
-
-client_4 = Client(
-    id='4', 
-    trainer_id='2', 
-    name='Jill Johnson',
-    email='jill.johnson@example.com'
-)
-
-#Create workouts
-workout1 = Workout(id="1", client_id="1", name="Running", description="5km jog")
-workout2 = Workout(id="2", client_id="2", name="Swimming", description="400m freestyle")
-workout3 = Workout(id="3", client_id="3", name="Cycling", description="30km ride")
+workouts = [
+    Workout(id="1", client_id="1", name="Running", description="5km jog"),
+    Workout(id="2", client_id="2", name="Swimming", description="400m freestyle"),
+    Workout(id="3", client_id="3", name="Cycling", description="30km ride")
+]
 
 with app.app_context():
-   trainer1.clients.append(client_1)
-   trainer2.clients.append(client_2)
-   trainer1.clients.append(client_3)
-   trainer2.clients.append(client_4)
-   db.session.add_all([trainer1, trainer2, client_1,
-                       client_2, client_3, client_4, workout1,
-                       workout2, workout3])
-    # Commit the changes to the database
-   db.session.commit()
+    db.drop_all()
+    db.create_all()
 
-# Create a MealPlanSummary object
-summary = MealPlanSummary(name="John Doe")
-summary1 = MealPlanSummary(name='Jane Smith')
+    db.session.add_all([trainer1, trainer2])
+    db.session.commit()
 
-# Create MealPlan objects for each meal on each day of the week
-monday_breakfast = MealPlan(day='Monday', meal_type='Breakfast', meal='Oatmeal', calories=350, protein=15, carbs=55, fat=7)
-monday_lunch = MealPlan(day='Monday', meal_type='Lunch', meal='Turkey Sandwich', calories=450, protein=25, carbs=40, fat=18)
-monday_dinner = MealPlan(day='Monday', meal_type='Dinner', meal='Grilled Chicken with Quinoa', calories=550, protein=45, carbs=40, fat=12)
-tuesday_breakfast = MealPlan(day='Tuesday', meal_type='Breakfast', meal='Scrambled Eggs with Avocado', calories=400, protein=20, carbs=10, fat=30)
-tuesday_lunch = MealPlan(day='Tuesday', meal_type='Lunch', meal='Tuna Salad', calories=350, protein=30, carbs=20, fat=15)
-tuesday_dinner = MealPlan(day='Tuesday', meal_type='Dinner', meal='Salmon with Roasted Vegetables', calories=600, protein=40, carbs=30, fat=25)
-# Repeat for Wednesday through Sunday
+    db.session.add(meal_plan1)
+    db.session.add_all(clients + workouts)
+    db.session.commit()
 
-#jane smiths objects
-meal1 = MealPlan(day='Monday', meal_type='Breakfast', meal='Scrambled eggs with spinach and whole grain toast', calories=350, protein=25, carbs=35, fat=12)
-meal2 = MealPlan(day='Monday', meal_type='Lunch', meal='Grilled chicken salad with mixed greens, tomatoes, and balsamic vinaigrette', calories=400, protein=40, carbs=20, fat=18)
-meal3 = MealPlan(day='Monday', meal_type='Dinner', meal='Baked salmon with roasted asparagus and quinoa', calories=450, protein=35, carbs=35, fat=20)
-meal4 = MealPlan(day='Tuesday', meal_type='Breakfast', meal='Greek yogurt with mixed berries and granola', calories=300, protein=20, carbs=40, fat=6)
-meal5 = MealPlan(day='Tuesday', meal_type='Lunch', meal='Turkey and avocado wrap with carrot sticks', calories=400, protein=30, carbs=40, fat=14)
-meal6 = MealPlan(day='Tuesday', meal_type='Dinner', meal='Beef stir-fry with broccoli and brown rice', calories=500, protein=40, carbs=45, fat=18)
-meal7 = MealPlan(day='Wednesday', meal_type='Breakfast', meal='Protein smoothie with banana, peanut butter, and almond milk', calories=350, protein=25, carbs=30, fat=12)
-meal8 = MealPlan(day='Wednesday', meal_type='Lunch', meal='Tuna salad with whole grain crackers', calories=350, protein=30, carbs=25, fat=12)
-meal9 = MealPlan(day='Wednesday', meal_type='Dinner', meal='Grilled shrimp skewers with mixed vegetables and quinoa', calories=450, protein=30, carbs=40, fat=16)
-
-# Add the MealPlan objects to the MealPlanSummary object
-summary.meal_plan.extend([monday_breakfast, monday_lunch, monday_dinner, tuesday_breakfast, tuesday_lunch, tuesday_dinner]) # Add all MealPlan objects
-summary1.meal_plan.extend([meal1, meal2, meal3, meal4, meal5, meal6, meal7, meal8, meal9])
-
-# Add the MealPlanSummary object to the database and commit changes
-with app.app_context():
-    db.session.add_all([summary, summary1])
+    trainer1.clients.extend([clients[0], clients[2]])
+    trainer2.clients.append(clients[1])
+    db.session.add_all([trainer1, trainer2])
     db.session.commit()

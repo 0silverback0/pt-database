@@ -1,0 +1,99 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<table>
+    <tr>
+      <th>Name</th>
+      <th>Monday</th>
+      <th>Tuesday</th>
+      <th>Wednesday</th>
+      <th>Thursday</th>
+      <th>Friday</th>
+      <th>Saturday</th>
+      <th>Sunday</th>
+    </tr>
+    {% for meal_plan in meal_plan_details %}
+    <tr>
+      <td>{{ meal_plan.name }}</td>
+      <td>
+        Breakfast: {{ meal_plan.monday_breakfast }}<br>
+        Calories: {{ meal_plan.monday_breakfast_calories }} <br>
+        Protein: {{ meal_plan.monday_breakfast_protein }} <br>
+        Carbs: {{ meal_plan.monday_breakfast_carbs }} <br>
+        Fat: {{ meal_plan.monday_breakfast_fat }} <br>
+
+        Snack 1: {{ meal_plan.monday_snack1 }}<br>
+        Calories: {{ meal_plan.monday_snack1_calories }} <br>
+        Protein: {{ meal_plan.monday_snack1_protein }} <br>
+        Carbs: {{ meal_plan.monday_snack1_carbs }} <br>
+        Fat: {{ meal_plan.monday_snack1_fat }} <br>
+
+        Lunch: {{ meal_plan.monday_lunch }}<br>
+        Calories: {{ meal_plan.monday_lunch_calories }} <br>
+        Protein: {{ meal_plan.monday_lunch_protein }} <br>
+        Carbs: {{ meal_plan.monday_lunch_carbs }} <br>
+        Fat: {{ meal_plan.monday_lunch_fat }} <br>
+
+        Snack 2: {{ meal_plan.monday_snack2 }}<br>
+        Calories: {{ meal_plan.monday_snack2_calories }} <br>
+        Protein: {{ meal_plan.monday_snack2_protein }} <br>
+        Carbs: {{ meal_plan.monday_snack2_carbs }} <br>
+        Fat: {{ meal_plan.monday_snack2_fat }} <br>
+
+        Dinner: {{ meal_plan.monday_dinner }}<br>
+        Calories: {{ meal_plan.monday_dinner_calories }} <br>
+        Protein: {{ meal_plan.monday_dinner_protein }} <br>
+        Carbs: {{ meal_plan.monday_dinner_carbs }} <br>
+        Fat: {{ meal_plan.monday_dinner_fat }} <br>
+      </td>
+      <td>
+        Breakfast: {{ meal_plan.tuesday_breakfast }}<br>
+        Snack 1: {{ meal_plan.tuesday_snack1 }}<br>
+        Lunch: {{ meal_plan.tuesday_lunch }}<br>
+        Snack 2: {{ meal_plan.tuesday_snack2 }}<br>
+        Dinner: {{ meal_plan.tuesday_dinner }}<br>
+        Calories: {{ meal_plan.tuesday_breakfast_calories }} <br>
+        Protein: {{ meal_plan.tuesday_breakfast_protein }} <br>
+        Carbs: {{ meal_plan.tuesday_breakfast_carbs }} <br>
+        Fat: {{ meal_plan.tuesday_breakfast_fat }}
+      </td>
+      <td>
+        Breakfast: {{ meal_plan.wednesday_breakfast }}<br>
+        Snack 1: {{ meal_plan.wednesday_snack1 }}<br>
+        Lunch: {{ meal_plan.wednesday_lunch }}<br>
+        Snack 2: {{ meal_plan.wednesday_snack2 }}<br>
+        Dinner: {{ meal_plan.wednesday_dinner }}<br>
+      </td>
+      <td>
+        Breakfast: {{ meal_plan.thursday_breakfast }}<br>
+        Snack 1: {{ meal_plan.thursday_snack1 }}<br>
+        Lunch: {{ meal_plan.thursday_lunch }}<br>
+        Snack 2: {{ meal_plan.thursday_snack2 }}<br>
+        Dinner: {{ meal_plan.thursday_dinner }}<br>
+      </td>
+      <td>
+        Breakfast: {{ meal_plan.friday_breakfast }}<br>
+        Snack 1: {{ meal_plan.friday_snack1 }}<br>
+        Lunch: {{ meal_plan.friday_lunch }}<br>
+        Snack 2: {{ meal_plan.friday_snack2 }}<br>
+        Dinner: {{ meal_plan.friday_dinner }}<br>
+      </td>
+      <td>
+        Breakfast: {{ meal_plan.saturday_breakfast }}<br>
+        Snack 1: {{ meal_plan.saturday_snack1 }}<br>
+        Lunch: {{ meal_plan.saturday_lunch }}<br>
+        Snack 2: {{ meal_plan.saturday_snack2 }}<br>
+        Dinner: {{ meal_plan.saturday_dinner }}<br>
+      </td>
+      <td>
+        Breakfast: {{ meal_plan.sunday_breakfast }}<br>
+        Snack 1: {{ meal_plan.sunday_snack1 }}<br>
+        Lunch: {{ meal_plan.sunday_lunch }}<br>
+        Snack 2: {{ meal_plan.sunday_snack2 }}<br>
+        Dinner: {{ meal_plan.sunday_dinner }}<br>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  
+{% endblock %}

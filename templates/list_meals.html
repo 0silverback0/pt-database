@@ -1,0 +1,9 @@
+{% extends 'index.html' %}
+{% block content %}
+<h1>Meal Plan List</h1>
+<ul>
+  {% for meal in meals %}
+    <li>{{ meal.name }} <a href="/meal_plan/{{meal.id}}">view meal plan</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

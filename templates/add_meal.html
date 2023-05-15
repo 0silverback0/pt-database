@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+{% block content %}
+  <h1 class="text-center">Add Meal</h1>
+  <form method="POST" action="{{ url_for('add_meal') }}" class="mx-auto text-center">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+      {{ form.client.label }} {{ form.client }}
+    </div>
+    <div class="form-group">
+      {{ form.day.label }} {{ form.day }}
+    </div>
+    <div class="form-group">
+      {{ form.meal_type.label }} {{ form.meal_type }}
+    </div>
+    <div class="form-group">
+      {{ form.meal.label }} {{ form.meal }}
+    </div>
+    <div class="form-group">
+      {{ form.calories.label }} {{ form.calories }}
+    </div>
+    <div class="form-group">
+      {{ form.protein.label }} {{ form.protein }}
+    </div>
+    <div class="form-group">
+      {{ form.carbs.label }} {{ form.carbs }}
+    </div>
+    <div class="form-group">
+      {{ form.fat.label }} {{ form.fat }}
+    </div>
+    <div class="form-group">
+      <input type="submit" class="btn btn-primary" value="Add">
+    </div>
+  </form>
+{% endblock %}
